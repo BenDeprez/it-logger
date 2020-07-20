@@ -22,7 +22,7 @@ const AddBtn = () => {
         </li>
         <li>
           <a
-            href='#tech-modal'
+            href='#add-tech-modal'
             className='btn-floating deep-orange accent-2 modal-trigger tooltipped'
             data-position='left'
             data-tooltip='Add Tech'>
