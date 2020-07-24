@@ -1,3 +1,6 @@
+// LOG REDUCER
+//////////////
+
 import { GET_LOGS, SET_LOADING, LOGS_ERROR } from '../actions/types';
 
 const initialState = {
@@ -8,7 +11,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch (action) {
+  switch (action.type) {
     case SET_LOADING:
       return {
         ...state,
@@ -19,6 +22,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     case GET_LOGS:
       return {
