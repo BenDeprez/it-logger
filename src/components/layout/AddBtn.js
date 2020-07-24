@@ -5,7 +5,7 @@ const AddBtn = () => {
     <div className='fixed-action-btn'>
       <a
         href='#add-log-modal'
-        className='btn-floating btn-large teal modal-trigger tooltipped'
+        className='btn-floating btn-large teal lighten-2 modal-trigger tooltipped'
         data-position='left'
         data-tooltip='Add Log'>
         <i className='large material-icons'>add</i>

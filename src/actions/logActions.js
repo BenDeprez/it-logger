@@ -10,6 +10,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_LOG,
+  SEARCH_LOGS,
 } from './types';
 
 // for clarity (r)
@@ -151,6 +152,29 @@ export const updateLog = (log) => async (dispatch) => {
     // dispatch to reducer and change state
     dispatch({
       type: UPDATE_LOG,
+      payload: data,
+    });
+
+    // error handling
+  } catch (err) {
+    dispatch({ type: LOGS_ERROR, payload: err.response.data });
+  }
+};
+
+// SEARCH LOGS
+//////////////
+
+export const searchLogs = (text) => async (dispatch) => {
+  try {
+    setLoading();
+
+    // make request
+    const res = await fetch(`/logs?q=${text}`);
+    const data = await res.json();
+
+    // dispatch to reducer and change state
+    dispatch({
+      type: SEARCH_LOGS,
       payload: data,
     });
 
