@@ -74,14 +74,15 @@ export const addLog = (log) => async (dispatch) => {
         'Content-Type': 'application/json',
       },
     });
-
-    const data = await res.json;
+    const data = await res.json();
 
     // dispatch to reducer and change state
     dispatch({
       type: ADD_LOG,
       payload: data,
     });
+
+    // error handling
   } catch (err) {
     dispatch({ type: LOGS_ERROR, payload: err.response.data });
   }
