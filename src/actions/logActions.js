@@ -1,7 +1,13 @@
 // LOG ACTIONS
 //////////////
 
-import { GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOG } from './types';
+import {
+  GET_LOGS,
+  SET_LOADING,
+  LOGS_ERROR,
+  ADD_LOG,
+  DELETE_LOG,
+} from './types';
 
 // for clarity (r)
 /* 
@@ -69,12 +75,33 @@ export const addLog = (log) => async (dispatch) => {
       },
     });
 
-    const data = res.json;
+    const data = await res.json;
 
     // dispatch to reducer and change state
     dispatch({
       type: ADD_LOG,
       payload: data,
+    });
+  } catch (err) {
+    dispatch({ type: LOGS_ERROR, payload: err.response.data });
+  }
+};
+
+// DELETE LOGS
+//////////////
+export const deleteLog = (id) => async (dispatch) => {
+  try {
+    setLoading();
+
+    // make request
+    await fetch(`/logs/${id}`, {
+      method: 'DELETE',
+    });
+
+    // dispatch to reducer and change state
+    dispatch({
+      type: DELETE_LOG,
+      payload: id,
     });
   } catch (err) {
     dispatch({ type: LOGS_ERROR, payload: err.response.data });
