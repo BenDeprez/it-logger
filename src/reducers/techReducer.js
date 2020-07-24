@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
     case ADD_TECH:
       return {
         ...state,
-        techs: [...state.logs, action.payload],
+        techs: [...state.techs, action.payload],
         loading: false,
       };
     case DELETE_TECH:

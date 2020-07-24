@@ -2,10 +2,10 @@
   "logs": [
     {
       "id": 1,
-      "message": "test log updated",
+      "message": "test log updated again",
       "attention": false,
       "tech": "John Doe",
-      "date": "2020-07-24T10:40:47.406Z"
+      "date": "2020-07-24T13:54:59.782Z"
     },
     {
       "message": "test log 2",
@@ -30,6 +30,21 @@
       "id": 3,
       "firstName": "Sara",
       "lastName": "Wilson"
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Zumecki",
+      "id": 4
+    },
+    {
+      "firstName": "Bubba",
+      "lastName": "McGee",
+      "id": 5
+    },
+    {
+      "firstName": "Quana",
+      "lastName": "Ubu",
+      "id": 6
     }
   ]
 }

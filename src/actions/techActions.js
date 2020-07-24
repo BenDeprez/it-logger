@@ -45,6 +45,32 @@ export const getTechs = () => async (dispatch) => {
 // ADD TECH
 ///////////
 
+export const addTech = (tech) => async (dispatch) => {
+  try {
+    setLoading();
+
+    // make request
+    const res = await fetch('/techs', {
+      method: 'POST',
+      body: JSON.stringify(tech),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await res.json();
+
+    // dispatch to reducer and change state
+    dispatch({
+      type: ADD_TECH,
+      payload: data,
+    });
+
+    // error handling
+  } catch (err) {
+    dispatch({ type: TECHS_ERROR, payload: err.response.statusText });
+  }
+};
+
 // DELETE TECH
 //////////////
 

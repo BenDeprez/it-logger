@@ -36,7 +36,7 @@ const AddLogModal = ({ addLog }) => {
       // confirmation alert
       M.toast({
         html: `Log added by ${tech}`,
-        classes: 'teal',
+        classes: 'green',
       });
 
       //clear fields

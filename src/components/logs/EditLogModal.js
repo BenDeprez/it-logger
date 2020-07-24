@@ -42,7 +42,7 @@ const EditLogModal = ({ current, updateLog }) => {
       // success alert
       M.toast({
         html: `Log updated by ${tech}`,
-        classes: 'teal',
+        classes: 'green',
       });
 
       //clear fields
