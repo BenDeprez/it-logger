@@ -30,21 +30,6 @@
       "id": 3,
       "firstName": "Sara",
       "lastName": "Wilson"
-    },
-    {
-      "firstName": "Bob",
-      "lastName": "Zumecki",
-      "id": 4
-    },
-    {
-      "firstName": "Bubba",
-      "lastName": "McGee",
-      "id": 5
-    },
-    {
-      "firstName": "Quana",
-      "lastName": "Ubu",
-      "id": 6
     }
   ]
 }

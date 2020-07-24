@@ -74,5 +74,21 @@ export const addTech = (tech) => async (dispatch) => {
 // DELETE TECH
 //////////////
 
-// TECHS ERROR
-//////////////
+export const deleteTech = (id) => async (dispatch) => {
+  try {
+    setLoading();
+
+    // make request
+    await fetch(`/techs/${id}`, {
+      method: 'DELETE',
+    });
+
+    // dispatch to reducer and change state
+    dispatch({
+      type: DELETE_TECH,
+      payload: id,
+    });
+  } catch (err) {
+    dispatch({ type: TECHS_ERROR, payload: err.response.statusText });
+  }
+};
