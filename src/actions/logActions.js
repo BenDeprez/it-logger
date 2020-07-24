@@ -1,7 +1,7 @@
 // LOG ACTIONS
 //////////////
 
-import { GET_LOGS, SET_LOADING, LOGS_ERROR } from './types';
+import { GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOG } from './types';
 
 // for clarity (r)
 /* 
@@ -19,6 +19,16 @@ export const getLogs = () => {
   };
 }; 
 */
+
+// SET LOADING
+//////////////
+
+// set loading to true
+export const setLoading = () => {
+  return {
+    type: SET_LOADING,
+  };
+};
 
 // GET LOGS
 ///////////
@@ -43,12 +53,30 @@ export const getLogs = () => async (dispatch) => {
   }
 };
 
-// SET LOADING
-//////////////
+// ADD LOGS
+///////////
 
-// set loading to true
-export const setLoading = () => {
-  return {
-    type: SET_LOADING,
-  };
+export const addLog = (log) => async (dispatch) => {
+  try {
+    setLoading();
+
+    // make request
+    const res = await fetch('/logs', {
+      method: 'POST',
+      body: JSON.stringify(log),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = res.json;
+
+    // dispatch to reducer and change state
+    dispatch({
+      type: ADD_LOG,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({ type: LOGS_ERROR, payload: err.response.data });
+  }
 };
